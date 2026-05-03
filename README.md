@@ -26,8 +26,13 @@ Hospedado via GitHub Pages: `https://<seu-usuario>.github.io/<repositorio>/`
 
 ```
 /
-└── index.html   # arquivo único — HTML, CSS e JS embutidos
-└── README.md
+├── index.html
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   └── javascript/
+│       └── script.js
+├── README.md
 └── .gitignore
 ```
 
