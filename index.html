@@ -936,7 +936,7 @@
       padding: 6px 0 10px;
       width: 100%;
       resize: none;
-      -webkit-animation-duration: none;
+      -webkit-appearance: none;
     }
     .orc-row input::placeholder, .orc-row textarea::placeholder { color: var(--ink-light); }
     .orc-row textarea { min-height: 80px; }
@@ -1235,7 +1235,7 @@
         <h1>Edson<br><em>F. Lima</em></h1>
         <p class="hero-role">Suporte TI &nbsp;·&nbsp; Eletrônica &nbsp;·&nbsp; Desenvolvimento</p>
         <p class="hero-bio">
-          Profissional de TI baseado em Carapicuíba – SP. com experiência em Service Desk, infraestrutura corporativa
+          Profissional de TI alocado em Carapicuíba – SP. com experiência em Service Desk, infraestrutura corporativa
           e desenvolvimento web. Cursando Bacharelado em Engenharia de Software.
         </p>
       </div>
@@ -1288,7 +1288,21 @@
       <div class="exp-list">
 
         <div class="exp-item reveal" data-delay="80">
-          
+          <div>
+            <div class="exp-period">2025<br>presente</div>
+            <div class="exp-badge now">● atual</div>
+          </div>
+          <div class="exp-body">
+            <h3>Técnico em Eletrônica Residente</h3>
+            <p class="exp-company">Simpress</p>
+            <ul class="exp-desc">
+              <li>Manutenção preventiva e corretiva de equipamentos de impressão</li>
+              <li>Diagnóstico de falhas em hardware e periféricos</li>
+              <li>Suporte técnico residente no cliente</li>
+              <li>Controle de peças e ativos com foco em SLA</li>
+              <li>Garantia de continuidade operacional do ambiente</li>
+            </ul>
+          </div>
         </div>
 
         <div class="exp-item reveal" data-delay="120">
@@ -1603,6 +1617,20 @@
   <script>
     emailjs.init('5UEtOeLslZvyiRjE6');
 
+    // ── SANITIZAÇÃO XSS ──
+    function sanitize(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#x27;')
+        .replace(/\//g, '&#x2F;')
+        .trim();
+    }
+
+    function getVal(id) { return sanitize(document.getElementById(id).value); }
+
     const SERVICE  = 'service_5xpffo9';
     const TEMPLATE = 'template_32axmfb';
 
@@ -1675,10 +1703,10 @@
 
     // ── ENVIAR ORÇAMENTO ──
     async function enviarOrcamento() {
-      const nome  = document.getElementById('oNome').value.trim();
-      const email = document.getElementById('oEmail').value.trim();
-      const tipo  = document.getElementById('oTipo').value;
-      const desc  = document.getElementById('oDesc').value.trim();
+      const nome  = getVal('oNome');
+      const email = getVal('oEmail');
+      const tipo  = getVal('oTipo');
+      const desc  = getVal('oDesc');
       const status = document.getElementById('orcStatus');
       const btn = document.getElementById('orcBtn');
 
@@ -1767,9 +1795,9 @@
 
     // ── ENVIAR REUNIÃO ──
     async function enviarReuniao() {
-      const nome   = document.getElementById('rNome').value.trim();
-      const email  = document.getElementById('rEmail').value.trim();
-      const assunto = document.getElementById('rAssunto').value.trim();
+      const nome    = getVal('rNome');
+      const email   = getVal('rEmail');
+      const assunto = getVal('rAssunto');
       const status = document.getElementById('reuStatus');
       const btn = document.getElementById('reuBtn');
 
@@ -1842,10 +1870,10 @@
       if(contactBtn) {
         contactBtn.addEventListener('click', async e => {
           e.preventDefault();
-          const nome  = document.getElementById('cNome').value.trim();
-          const email = document.getElementById('cEmail').value.trim();
-          const assunto = document.getElementById('cAssunto').value.trim();
-          const msg = document.getElementById('cMsg').value.trim();
+          const nome    = getVal('cNome');
+          const email   = getVal('cEmail');
+          const assunto = getVal('cAssunto');
+          const msg     = getVal('cMsg');
           if(!nome || !email || !assunto || !msg) { contactBtn.textContent = 'Preencha todos os campos'; setTimeout(()=>contactBtn.textContent='Enviar mensagem →',2000); return; }
           contactBtn.textContent = 'Enviando...';
           contactBtn.style.opacity = '0.6';
