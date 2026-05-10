@@ -808,6 +808,265 @@
     .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ══ POR QUE ME CONTRATAR ══ */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .why-card {
+      background: var(--surface);
+      padding: 24px 20px;
+      transition: background var(--transition);
+    }
+    .why-icon { font-size: 20px; margin-bottom: 12px; }
+    .why-card h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .why-card p { font-size: 12px; color: var(--ink-mid); line-height: 1.75; font-weight: 300; }
+
+    /* ══ CTA SECAO ══ */
+    .cta-section {
+      background: var(--nav-bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 72px 80px 80px;
+      max-width: 940px;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .cta-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--ink-light); }
+    .cta-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      color: var(--nav-active);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .cta-section h2 em { font-style: italic; opacity: 0.55; }
+    .cta-sub { font-size: 14px; color: var(--ink-light); font-weight: 300; margin-bottom: 40px; max-width: 480px; line-height: 1.7; }
+    .cta-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* ══ OVERLAY / MODAL ══ */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 800;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+    }
+    .overlay.open { display: flex; }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      width: min(680px, 95vw);
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modalIn 0.25s ease;
+    }
+    @keyframes modalIn { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+
+    .modal-header {
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .modal-title { font-family: 'DM Serif Display', serif; font-size: 22px; font-weight: 400; color: var(--ink); }
+    .modal-sub { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--ink-light); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+    .modal-close {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--ink-light);
+      font-size: 16px;
+      width: 32px; height: 32px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all var(--transition);
+    }
+    .modal-close:hover { border-color: var(--ink); color: var(--ink); }
+    .modal-body { padding: 28px; }
+
+    /* ══ ORÇAMENTO FORM ══ */
+    .orc-form { display: flex; flex-direction: column; gap: 0; }
+    .orc-row { display: flex; flex-direction: column; border-bottom: 1px solid var(--border); }
+    .orc-row:first-child { border-top: 1px solid var(--border); }
+    .orc-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding: 10px 0 0;
+    }
+    .orc-row input, .orc-row textarea, .orc-row select {
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--ink);
+      padding: 6px 0 10px;
+      width: 100%;
+      resize: none;
+      -webkit-animation-duration: none;
+    }
+    .orc-row input::placeholder, .orc-row textarea::placeholder { color: var(--ink-light); }
+    .orc-row textarea { min-height: 80px; }
+    .orc-row select option { background: var(--surface); color: var(--ink); }
+
+    .upload-area {
+      border: 1px dashed var(--border2);
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      margin: 20px 0;
+      transition: border-color var(--transition);
+    }
+    .upload-area:hover { border-color: var(--ink-mid); }
+    .upload-area input { display: none; }
+    .upload-icon { font-size: 24px; margin-bottom: 8px; }
+    .upload-label { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-light); letter-spacing: 0.1em; text-transform: uppercase; }
+    .upload-hint { font-size: 11px; color: var(--ink-light); margin-top: 4px; }
+    .upload-list { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+    .upload-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--ink-mid);
+      padding: 6px 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+    }
+    .upload-item button { background: none; border: none; color: var(--ink-light); cursor: pointer; font-size: 14px; line-height: 1; }
+
+    /* ══ CALENDÁRIO ══ */
+    .cal-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    @media (max-width: 600px) { .cal-wrap { grid-template-columns: 1fr; } }
+
+    .cal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .cal-month { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--ink); }
+    .cal-nav-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--ink-light);
+      width: 30px; height: 30px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition);
+    }
+    .cal-nav-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+    .cal-day-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-align: center;
+      padding: 6px 0;
+    }
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-family: 'DM Mono', monospace;
+      color: var(--ink-mid);
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+    }
+    .cal-day:hover:not(.disabled):not(.empty) { border-color: var(--border2); color: var(--ink); }
+    .cal-day.selected { background: var(--btn-bg); color: var(--btn-text); border-color: var(--btn-bg); }
+    .cal-day.disabled { color: var(--ink-faint); cursor: not-allowed; opacity: 0.35; }
+    .cal-day.empty { cursor: default; }
+
+    .time-section { display: none; }
+    .time-section.visible { display: block; }
+    .time-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 12px;
+    }
+    .time-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .time-slot {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      padding: 10px 6px;
+      text-align: center;
+      border: 1px solid var(--border);
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .time-slot:hover { border-color: var(--border2); color: var(--ink); }
+    .time-slot.selected { background: var(--btn-bg); color: var(--btn-text); border-color: var(--btn-bg); }
+
+    .cal-info { margin-bottom: 20px; }
+    .cal-info h4 { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--ink); margin-bottom: 6px; }
+    .cal-info p { font-size: 12px; color: var(--ink-mid); line-height: 1.7; font-weight: 300; }
+    .cal-info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--ink-light);
+      margin-top: 10px;
+    }
+
+    .form-row-double { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .modal-footer {
+      padding: 20px 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-footer-hint { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--ink-light); }
+    .send-status { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-mid); letter-spacing: 0.08em; }
+
     /* ═══════════════════════════════════════
        MOBILE NAV
     ═══════════════════════════════════════ */
@@ -934,6 +1193,7 @@
     <a href="#projects"   onclick="closeDrawer()">projetos</a>
     <a href="#skills"     onclick="closeDrawer()">habilidades</a>
     <a href="#education"  onclick="closeDrawer()">formação</a>
+    <a href="#why"        onclick="closeDrawer()">por que eu</a>
     <a href="#contact"    onclick="closeDrawer()">contato</a>
   </div>
 
@@ -951,7 +1211,8 @@
         <a href="#projects">  <span class="nav-num">03</span> projetos</a>
         <a href="#skills">    <span class="nav-num">04</span> habilidades</a>
         <a href="#education"> <span class="nav-num">05</span> formação</a>
-        <a href="#contact">   <span class="nav-num">06</span> contato</a>
+        <a href="#why">       <span class="nav-num">06</span> por que eu</a>
+        <a href="#contact">   <span class="nav-num">07</span> contato</a>
       </div>
     </div>
     <div class="nav-footer">
@@ -974,7 +1235,8 @@
         <h1>Edson<br><em>F. Lima</em></h1>
         <p class="hero-role">Suporte TI &nbsp;·&nbsp; Eletrônica &nbsp;·&nbsp; Desenvolvimento</p>
         <p class="hero-bio">
-          Profissional de TI – SP. com experiência em Service Desk, infraestrutura corporativa
+          Profissional de TI baseado em Carapicuíba – SP. Atualmente Técnico em Eletrônica
+          Residente na Simpress, com experiência em Service Desk, infraestrutura corporativa
           e desenvolvimento web. Cursando Bacharelado em Engenharia de Software.
         </p>
       </div>
@@ -1027,26 +1289,12 @@
       <div class="exp-list">
 
         <div class="exp-item reveal" data-delay="80">
-          <div>
-            <div class="exp-period">2025<br>presente</div>
-            <div class="exp-badge now">● atual</div>
-          </div>
-          <div class="exp-body">
-            <h3>Técnico em Eletrônica Residente</h3>
-            <p class="exp-company">Simpress</p>
-            <ul class="exp-desc">
-              <li>Manutenção preventiva e corretiva de equipamentos de impressão</li>
-              <li>Diagnóstico de falhas em hardware e periféricos</li>
-              <li>Suporte técnico residente no cliente</li>
-              <li>Controle de peças e ativos com foco em SLA</li>
-              <li>Garantia de continuidade operacional do ambiente</li>
-            </ul>
-          </div>
+          
         </div>
 
         <div class="exp-item reveal" data-delay="120">
           <div>
-            <div class="exp-period">MAR. 2025<br>ABR. 2026</div>
+            <div class="exp-period">2025<br>abr. 2026</div>
             <div class="exp-badge">concluído</div>
           </div>
           <div class="exp-body">
@@ -1065,7 +1313,7 @@
 
         <div class="exp-item reveal" data-delay="160">
           <div>
-            <div class="exp-period">SET. 2024<br>FEV. 2025</div>
+            <div class="exp-period">set. 2024<br>fev. 2025</div>
             <div class="exp-badge">concluído</div>
           </div>
           <div class="exp-body">
@@ -1082,7 +1330,7 @@
 
         <div class="exp-item reveal" data-delay="200">
           <div>
-            <div class="exp-period">SET. 2025<br>FEV. 2026</div>
+            <div class="exp-period">set. 2024<br>2025</div>
             <div class="exp-badge">concluído</div>
           </div>
           <div class="exp-body">
@@ -1170,9 +1418,60 @@
       </div>
     </section>
 
+    <!-- POR QUE ME CONTRATAR -->
+    <section id="why">
+      <p class="sec-label"><span>06</span> Por que eu</p>
+      <h2 class="sec-title reveal">Por que me contratar</h2>
+      <p class="sec-sub reveal" data-delay="60">Experiência real, comprometimento e visão técnica em crescimento constante.</p>
+
+      <div class="why-grid reveal" data-delay="100">
+        <div class="why-card">
+          <div class="why-icon">🖥</div>
+          <h4>Service Desk & Suporte</h4>
+          <p>Atendimento corporativo na Dell Technologies com gestão de chamados por SLA, suporte remoto, VPN e documentação técnica seguindo boas práticas ITIL.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔧</div>
+          <h4>Hardware & Eletrônica</h4>
+          <p>Técnico Residente na Simpress com manutenção preventiva e corretiva de equipamentos, diagnóstico de falhas e controle de ativos no ambiente do cliente.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🌐</div>
+          <h4>Desenvolvimento Web</h4>
+          <p>Projetos reais em HTML, CSS e JavaScript com foco em UI/UX, responsividade e código limpo — como o CineDragon, plataforma completa de cinema.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔒</div>
+          <h4>Segurança da Informação</h4>
+          <p>Cursando Engenharia de Software com ênfase em cybersecurity, criptografia, ISO 27001, forense digital e governança de TI.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">☁</div>
+          <h4>Cloud & Infraestrutura</h4>
+          <p>Conhecimentos em AWS, Azure, Docker, redes TCP/IP, DNS e Linux — base sólida para ambientes corporativos modernos e escaláveis.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📈</div>
+          <h4>Crescimento Acelerado</h4>
+          <p>Em menos de 2 anos atuei em 4 empresas, acumulando experiência em suporte, eletrônica e desenvolvimento — sempre buscando evoluir tecnicamente.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA — VAMOS TIRAR SUA IDEIA DO PAPEL -->
+    <div class="cta-section reveal">
+      <p class="cta-eyebrow">disponível para projetos</p>
+      <h2>Vamos tirar sua<br><em>ideia do papel</em></h2>
+      <p class="cta-sub">Tem um projeto em mente? Precisa de suporte técnico, desenvolvimento ou consultoria? Vamos conversar e fazer acontecer.</p>
+      <div class="cta-btns">
+        <button class="btn btn-fill" onclick="openModal('orcamento')">Fazer orçamento</button>
+        <button class="btn" onclick="openModal('reuniao')">Agendar reunião</button>
+      </div>
+    </div>
+
     <!-- CONTATO -->
     <section id="contact">
-      <p class="sec-label"><span>06</span> Contato</p>
+      <p class="sec-label"><span>07</span> Contato</p>
       <h2 class="sec-title reveal">Vamos conversar</h2>
       <p class="sec-sub reveal" data-delay="60">Aberto a novas oportunidades em TI. Respondo em até 24h.</p>
       <div class="contact-grid reveal" data-delay="100">
@@ -1192,14 +1491,13 @@
             <span>Edson F. Lima</span>
             <span class="contact-link-arrow">→</span>
           </a>
-
         </div>
         <div class="form">
-          <div class="form-row"><label class="form-label">Nome</label><input type="text" placeholder="Seu nome completo"></div>
-          <div class="form-row"><label class="form-label">E-mail</label><input type="email" placeholder="seu@email.com"></div>
-          <div class="form-row"><label class="form-label">Assunto</label><input type="text" placeholder="Do que se trata?"></div>
-          <div class="form-row"><label class="form-label">Mensagem</label><textarea placeholder="Conta sobre a oportunidade ou projeto..."></textarea></div>
-          <button class="btn btn-fill form-submit">Enviar mensagem →</button>
+          <div class="form-row"><label class="form-label">Nome</label><input type="text" id="cNome" placeholder="Seu nome completo"></div>
+          <div class="form-row"><label class="form-label">E-mail</label><input type="email" id="cEmail" placeholder="seu@email.com"></div>
+          <div class="form-row"><label class="form-label">Assunto</label><input type="text" id="cAssunto" placeholder="Do que se trata?"></div>
+          <div class="form-row"><label class="form-label">Mensagem</label><textarea id="cMsg" placeholder="Conta sobre a oportunidade ou projeto..."></textarea></div>
+          <button class="btn btn-fill form-submit" id="contactBtn">Enviar mensagem →</button>
         </div>
       </div>
     </section>
@@ -1211,105 +1509,355 @@
 
   </main>
 
+  <!-- ══ MODAL ORÇAMENTO ══ -->
+  <div class="overlay" id="overlayOrc">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">Fazer orçamento</div>
+          <div class="modal-sub">Descreva seu projeto — respondo em até 24h</div>
+        </div>
+        <button class="modal-close" onclick="closeModal('orcamento')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="orc-form">
+          <div class="orc-row"><label class="orc-label">Nome completo</label><input type="text" id="oNome" placeholder="Seu nome"></div>
+          <div class="orc-row"><label class="orc-label">E-mail</label><input type="email" id="oEmail" placeholder="seu@email.com"></div>
+          <div class="orc-row">
+            <label class="orc-label">Tipo de projeto</label>
+            <select id="oTipo">
+              <option value="" disabled selected>Selecione...</option>
+              <option>Site / Landing Page</option>
+              <option>Sistema Web</option>
+              <option>Suporte Técnico</option>
+              <option>Consultoria em TI</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="orc-row"><label class="orc-label">Descrição do projeto</label><textarea id="oDesc" placeholder="Descreva sua ideia, funcionalidades e objetivo principal..."></textarea></div>
+        </div>
+
+        <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+          <input type="file" id="fileInput" multiple accept=".pdf,image/*" onchange="handleFiles(this.files)">
+          <div class="upload-icon">📎</div>
+          <div class="upload-label">Clique para anexar arquivos</div>
+          <div class="upload-hint">PDFs e imagens — até 5 arquivos</div>
+        </div>
+        <div class="upload-list" id="uploadList"></div>
+      </div>
+      <div class="modal-footer">
+        <span class="modal-footer-hint" id="orcStatus"></span>
+        <button class="btn btn-fill" id="orcBtn" onclick="enviarOrcamento()">Enviar orçamento →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MODAL REUNIÃO ══ -->
+  <div class="overlay" id="overlayReu">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">Agendar reunião</div>
+          <div class="modal-sub">Segunda a sexta · 30 minutos · videochamada</div>
+        </div>
+        <button class="modal-close" onclick="closeModal('reuniao')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="cal-wrap">
+          <div>
+            <div class="cal-info">
+              <div class="cal-info-item">🕐 30 minutos</div>
+              <div class="cal-info-item">📹 Videochamada (link enviado por e-mail)</div>
+              <div class="cal-info-item">📅 Segunda a sexta</div>
+            </div>
+            <div class="cal-header">
+              <button class="cal-nav-btn" onclick="calNav(-1)">‹</button>
+              <span class="cal-month" id="calMonth"></span>
+              <button class="cal-nav-btn" onclick="calNav(1)">›</button>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+          </div>
+          <div>
+            <div class="time-section" id="timeSection">
+              <div class="time-label" id="timeLabel">Horários disponíveis</div>
+              <div class="time-grid" id="timeGrid"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px">
+          <div class="orc-form">
+            <div class="orc-row"><label class="orc-label">Seu nome</label><input type="text" id="rNome" placeholder="Nome completo"></div>
+            <div class="orc-row"><label class="orc-label">E-mail</label><input type="email" id="rEmail" placeholder="seu@email.com"></div>
+            <div class="orc-row"><label class="orc-label">Assunto da reunião</label><input type="text" id="rAssunto" placeholder="Do que vamos tratar?"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span class="modal-footer-hint" id="reuStatus"></span>
+        <button class="btn btn-fill" id="reuBtn" onclick="enviarReuniao()">Confirmar agendamento →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    // ── THEME TOGGLE ──
+    emailjs.init('5UEtOeLslZvyiRjE6');
+
+    const SERVICE  = 'service_5xpffo9';
+    const TEMPLATE = 'template_32axmfb';
+
+    // ── THEME ──
     function toggleTheme() {
       const html = document.documentElement;
       const isDark = html.getAttribute('data-theme') === 'dark';
       html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-
-      const icon  = document.getElementById('themeIcon');
+      const icon = document.getElementById('themeIcon');
       const label = document.getElementById('themeLabel');
-      const mobBtn = document.getElementById('mobThemeBtn');
-
-      if (isDark) {
-        if (icon)   icon.textContent  = '☽';
-        if (label)  label.textContent = 'tema escuro';
-        if (mobBtn) mobBtn.textContent = '☽';
-      } else {
-        if (icon)   icon.textContent  = '☀';
-        if (label)  label.textContent = 'tema claro';
-        if (mobBtn) mobBtn.textContent = '☀';
-      }
-
+      const mob = document.getElementById('mobThemeBtn');
+      const v = isDark ? ['☽','tema escuro'] : ['☀','tema claro'];
+      if(icon) icon.textContent = v[0];
+      if(label) label.textContent = v[1];
+      if(mob) mob.textContent = v[0];
       localStorage.setItem('theme', isDark ? 'light' : 'dark');
     }
 
-    // Restore saved theme
-    (function() {
-      const saved = localStorage.getItem('theme');
-      if (saved && saved !== 'dark') {
-        document.documentElement.setAttribute('data-theme', saved);
-        const icon  = document.getElementById('themeIcon');
+    (function(){
+      const s = localStorage.getItem('theme');
+      if(s && s !== 'dark') {
+        document.documentElement.setAttribute('data-theme', s);
+        const icon = document.getElementById('themeIcon');
         const label = document.getElementById('themeLabel');
-        const mobBtn = document.getElementById('mobThemeBtn');
-        if (icon)   icon.textContent  = '☽';
-        if (label)  label.textContent = 'tema escuro';
-        if (mobBtn) mobBtn.textContent = '☽';
+        const mob = document.getElementById('mobThemeBtn');
+        if(icon) icon.textContent = '☽';
+        if(label) label.textContent = 'tema escuro';
+        if(mob) mob.textContent = '☽';
       }
     })();
 
+    // ── MODAIS ──
+    function openModal(type) {
+      document.getElementById(type === 'orcamento' ? 'overlayOrc' : 'overlayReu').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(type) {
+      document.getElementById(type === 'orcamento' ? 'overlayOrc' : 'overlayReu').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.overlay').forEach(o => {
+      o.addEventListener('click', e => { if(e.target === o) { o.classList.remove('open'); document.body.style.overflow = ''; }});
+    });
+
+    // ── UPLOAD ──
+    let uploadedFiles = [];
+
+    function handleFiles(files) {
+      const arr = Array.from(files);
+      arr.forEach(f => {
+        if(uploadedFiles.length >= 5) return;
+        if(!uploadedFiles.find(x => x.name === f.name)) uploadedFiles.push(f);
+      });
+      renderUploadList();
+    }
+
+    function renderUploadList() {
+      const list = document.getElementById('uploadList');
+      list.innerHTML = uploadedFiles.map((f,i) => `
+        <div class="upload-item">
+          <span>${f.name}</span>
+          <button onclick="removeFile(${i})">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function removeFile(i) { uploadedFiles.splice(i,1); renderUploadList(); }
+
+    // ── ENVIAR ORÇAMENTO ──
+    async function enviarOrcamento() {
+      const nome  = document.getElementById('oNome').value.trim();
+      const email = document.getElementById('oEmail').value.trim();
+      const tipo  = document.getElementById('oTipo').value;
+      const desc  = document.getElementById('oDesc').value.trim();
+      const status = document.getElementById('orcStatus');
+      const btn = document.getElementById('orcBtn');
+
+      if(!nome || !email || !tipo || !desc) { status.textContent = 'Preencha todos os campos.'; return; }
+
+      btn.textContent = 'Enviando...';
+      btn.style.opacity = '0.6';
+      btn.style.pointerEvents = 'none';
+
+      const msg = `Tipo: ${tipo}\n\nDescrição:\n${desc}\n\nArquivos anexados: ${uploadedFiles.length > 0 ? uploadedFiles.map(f=>f.name).join(', ') : 'Nenhum'}`;
+
+      try {
+        await emailjs.send(SERVICE, TEMPLATE, {
+          from_name: nome,
+          from_email: email,
+          subject: 'Orçamento — ' + tipo,
+          message: msg
+        });
+        status.textContent = 'Enviado com sucesso!';
+        btn.textContent = '✓ Enviado';
+      } catch(e) {
+        status.textContent = 'Erro ao enviar. Tente por e-mail.';
+        btn.textContent = 'Enviar orçamento →';
+        btn.style.opacity = '';
+        btn.style.pointerEvents = '';
+      }
+    }
+
+    // ── CALENDÁRIO ──
+    let calDate = new Date();
+    let selDay = null;
+    let selTime = null;
+
+    const MONTHS = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+    const TIMES = ['09:00','09:30','10:00','10:30','11:00','11:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30'];
+
+    function renderCal() {
+      const d = new Date(calDate.getFullYear(), calDate.getMonth(), 1);
+      document.getElementById('calMonth').textContent = MONTHS[d.getMonth()] + ' ' + d.getFullYear();
+
+      const grid = document.getElementById('calGrid');
+      const today = new Date(); today.setHours(0,0,0,0);
+
+      let html = ['DOM','SEG','TER','QUA','QUI','SEX','SAB'].map(n => `<div class="cal-day-name">${n}</div>`).join('');
+
+      const firstDay = d.getDay();
+      for(let i=0;i<firstDay;i++) html += `<div class="cal-day empty"></div>`;
+
+      const daysInMonth = new Date(d.getFullYear(), d.getMonth()+1, 0).getDate();
+      for(let day=1; day<=daysInMonth; day++) {
+        const date = new Date(d.getFullYear(), d.getMonth(), day);
+        const dow = date.getDay();
+        const isPast = date < today;
+        const isWeekend = dow === 0 || dow === 6;
+        const disabled = isPast || isWeekend;
+        const selected = selDay && selDay.toDateString() === date.toDateString();
+        html += `<div class="cal-day ${disabled?'disabled':''} ${selected?'selected':''}" ${!disabled?`onclick="selectDay(new Date(${date.getTime()}))"`:''}>${day}</div>`;
+      }
+
+      grid.innerHTML = html;
+    }
+
+    function calNav(dir) {
+      calDate = new Date(calDate.getFullYear(), calDate.getMonth() + dir, 1);
+      selDay = null; selTime = null;
+      document.getElementById('timeSection').classList.remove('visible');
+      renderCal();
+    }
+
+    function selectDay(date) {
+      selDay = date; selTime = null;
+      renderCal();
+      const sec = document.getElementById('timeSection');
+      sec.classList.add('visible');
+      const label = document.getElementById('timeLabel');
+      const days = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+      label.textContent = days[date.getDay()] + ', ' + date.getDate() + ' de ' + MONTHS[date.getMonth()];
+      document.getElementById('timeGrid').innerHTML = TIMES.map(t => `<div class="time-slot" onclick="selectTime('${t}',this)">${t}</div>`).join('');
+    }
+
+    function selectTime(t, el) {
+      selTime = t;
+      document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    // ── ENVIAR REUNIÃO ──
+    async function enviarReuniao() {
+      const nome   = document.getElementById('rNome').value.trim();
+      const email  = document.getElementById('rEmail').value.trim();
+      const assunto = document.getElementById('rAssunto').value.trim();
+      const status = document.getElementById('reuStatus');
+      const btn = document.getElementById('reuBtn');
+
+      if(!nome || !email || !assunto) { status.textContent = 'Preencha seus dados.'; return; }
+      if(!selDay) { status.textContent = 'Selecione uma data.'; return; }
+      if(!selTime) { status.textContent = 'Selecione um horário.'; return; }
+
+      btn.textContent = 'Enviando...';
+      btn.style.opacity = '0.6';
+      btn.style.pointerEvents = 'none';
+
+      const dateStr = selDay.getDate() + '/' + (selDay.getMonth()+1) + '/' + selDay.getFullYear();
+      const msg = `Reunião solicitada\nData: ${dateStr}\nHorário: ${selTime}\n\nAssunto: ${assunto}`;
+
+      try {
+        await emailjs.send(SERVICE, TEMPLATE, {
+          from_name: nome,
+          from_email: email,
+          subject: 'Reunião — ' + dateStr + ' às ' + selTime,
+          message: msg
+        });
+        status.textContent = 'Agendamento enviado! Confirmarei por e-mail.';
+        btn.textContent = '✓ Confirmado';
+      } catch(e) {
+        status.textContent = 'Erro ao enviar. Tente por e-mail.';
+        btn.textContent = 'Confirmar agendamento →';
+        btn.style.opacity = '';
+        btn.style.pointerEvents = '';
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+      renderCal();
 
       // Scroll spy
       const sections = document.querySelectorAll('section[id]');
       const navLinks = document.querySelectorAll('.side-nav a');
-
       const updateNav = () => {
         let current = '';
-        sections.forEach(sec => {
-          if (sec.getBoundingClientRect().top <= window.innerHeight * 0.45) current = sec.id;
-        });
-        navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-        });
+        sections.forEach(sec => { if(sec.getBoundingClientRect().top <= window.innerHeight * 0.45) current = sec.id; });
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${current}`));
       };
-
       window.addEventListener('scroll', updateNav, { passive: true });
       updateNav();
 
-      // Reveal on scroll
+      // Reveal
       const revealObs = new IntersectionObserver(entries => {
         entries.forEach(e => {
-          if (e.isIntersecting) {
-            setTimeout(() => e.target.classList.add('visible'), parseInt(e.target.dataset.delay) || 0);
-            revealObs.unobserve(e.target);
-          }
+          if(e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), parseInt(e.target.dataset.delay)||0); revealObs.unobserve(e.target); }
         });
       }, { threshold: 0.08 });
-
       document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
       // Skill bars
       const barObs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('animate'); barObs.unobserve(e.target); }
-        });
+        entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('animate'); barObs.unobserve(e.target); } });
       }, { threshold: 0.3 });
-
       document.querySelectorAll('.bar-fill').forEach(b => barObs.observe(b));
 
       // Smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
           const t = document.querySelector(a.getAttribute('href'));
-          if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+          if(t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
         });
       });
 
-      // Form submit
-      const btn = document.querySelector('.form-submit');
-      if (btn) {
-        btn.addEventListener('click', e => {
+      // Formulário de contato
+      const contactBtn = document.getElementById('contactBtn');
+      if(contactBtn) {
+        contactBtn.addEventListener('click', async e => {
           e.preventDefault();
-          const filled = [...document.querySelectorAll('.form-row input, .form-row textarea')].every(i => i.value.trim());
-          if (filled) {
-            btn.textContent = 'Enviado ✓';
-            btn.style.pointerEvents = 'none';
-            btn.style.opacity = '0.5';
-          } else {
-            btn.textContent = 'Preencha todos os campos';
-            setTimeout(() => btn.textContent = 'Enviar mensagem →', 2000);
+          const nome  = document.getElementById('cNome').value.trim();
+          const email = document.getElementById('cEmail').value.trim();
+          const assunto = document.getElementById('cAssunto').value.trim();
+          const msg = document.getElementById('cMsg').value.trim();
+          if(!nome || !email || !assunto || !msg) { contactBtn.textContent = 'Preencha todos os campos'; setTimeout(()=>contactBtn.textContent='Enviar mensagem →',2000); return; }
+          contactBtn.textContent = 'Enviando...';
+          contactBtn.style.opacity = '0.6';
+          contactBtn.style.pointerEvents = 'none';
+          try {
+            await emailjs.send(SERVICE, TEMPLATE, { from_name: nome, from_email: email, subject: assunto, message: msg });
+            contactBtn.textContent = '✓ Enviado';
+          } catch(err) {
+            contactBtn.textContent = 'Erro — tente por e-mail';
+            contactBtn.style.opacity = '';
+            contactBtn.style.pointerEvents = '';
           }
         });
       }
@@ -1320,9 +1868,7 @@
       d.style.display = d.style.display === 'flex' ? 'none' : 'flex';
     }
 
-    function closeDrawer() {
-      document.getElementById('mobDrawer').style.display = 'none';
-    }
+    function closeDrawer() { document.getElementById('mobDrawer').style.display = 'none'; }
   </script>
 
 </body>
