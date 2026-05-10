@@ -2,10 +2,6 @@
 
 Portfólio pessoal desenvolvido em HTML, CSS e JavaScript puro, sem frameworks ou dependências externas além das fontes do Google.
 
-## 🔗 Acesso
-
-Hospedado via GitHub Pages: `https://<seu-usuario>.github.io/<repositorio>/`
-
 ## 🛠 Tecnologias
 
 - HTML5 semântico
@@ -35,15 +31,6 @@ Hospedado via GitHub Pages: `https://<seu-usuario>.github.io/<repositorio>/`
 ├── README.md
 └── .gitignore
 ```
-
-## 🚀 Como hospedar no GitHub Pages
-
-1. Crie um repositório no GitHub
-2. Faça upload dos arquivos (ou `git push`)
-3. Vá em **Settings → Pages**
-4. Em **Source**, selecione a branch `main` e pasta `/ (root)`
-5. Salve — o site estará disponível em alguns segundos
-
 ## 📬 Contato
 
 - **E-mail:** edsonlima9699@gmail.com
